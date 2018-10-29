@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ExcersizeTile"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="2"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/ExcersizeName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="30sp"
+        android:hint="Name"
+        android:background="@drawable/basic_border"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/ExcersizeRepTime"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="30sp"
+            android:hint="RepTime"
+            android:background="@drawable/basic_border"/>
+
+        <TextView
+            android:id="@+id/ExcersizeCalories"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="30sp"
+            android:hint="Calories"
+            android:background="@drawable/basic_border"/>
+
+    </LinearLayout>
+
+</LinearLayout>

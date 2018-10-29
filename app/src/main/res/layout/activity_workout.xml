@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="Workouts"
+        android:textColor="#000000"
+        android:background="@color/colorPrimary"/>
+
+
+    <ListView
+        android:id="@+id/workoutsView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="8"
+        android:divider="@android:color/transparent"
+        android:transcriptMode="alwaysScroll" />
+
+    <Button
+        android:id="@+id/NewWorkout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:text="New"
+        />
+
+</LinearLayout>
