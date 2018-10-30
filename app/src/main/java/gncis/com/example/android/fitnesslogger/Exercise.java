@@ -1,6 +1,6 @@
 package gncis.com.example.android.fitnesslogger;
 
-public class Excersize {
+public class Exercise {
 
     String name;
     int Cal;
@@ -37,7 +37,7 @@ public class Excersize {
     }
 
     public void setRepTime(int reps) {
-        this.repTime = repTime;
+        this.repTime = reps;
     }
 
     public int getTr() {

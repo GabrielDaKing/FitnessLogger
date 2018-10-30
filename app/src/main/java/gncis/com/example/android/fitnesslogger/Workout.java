@@ -37,7 +37,7 @@ public class Workout {
     }
 
     public void setRepTime(int reps) {
-        this.repTime = repTime;
+        this.repTime = reps;
     }
 
     public int getTr() {

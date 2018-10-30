@@ -10,10 +10,8 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -47,11 +45,11 @@ public class WorkoutAdapter extends ArrayAdapter<Workout> {
 
         Name.setText(workout.getName());
         String cal = String.valueOf(workout.getCal());
-        Cal.setText(cal);
+        Cal.setText(cal + " cal");
         String rep = String.valueOf(workout.getRepTime());
         Rep.setText(rep);
 
-        if(workout.getTr()==0)
+        if (workout.getTr() == 0)
             Rep.setText(workout.getRepTime()+" Reps ");
         else
             Rep.setText(workout.getRepTime()+"s ");

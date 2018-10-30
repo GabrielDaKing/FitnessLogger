@@ -9,20 +9,20 @@ import android.provider.BaseColumns;
 
 import java.util.ArrayList;
 
-public class ExcersizeData extends SQLiteOpenHelper {
+public class ExerciseData extends SQLiteOpenHelper {
 
-    public static final String TABLE_NAME = "excersize";
-    public static final String NAME = "name";
-    public static final String EXCERSIZE_ID = BaseColumns._ID;
-    public static final String CALORIES = "calories";
-    public static final String REPTIME = "repTime";
-    public static final String TIME_OR_REPS = "tr";
+    private static final String TABLE_NAME = "exercise";
+    private static final String NAME = "name";
+    private static final String EXCERSIZE_ID = BaseColumns._ID;
+    private static final String CALORIES = "calories";
+    private static final String REPTIME = "repTime";
+    private static final String TIME_OR_REPS = "tr";
 
-    private static final String DATABASE_NAME = "Fitness2.db";
+    private static final String DATABASE_NAME = "Fitness.db";
 
     private static final int DATABASE_VERSION = 1;
 
-    public ExcersizeData(Context context) {
+    ExerciseData(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -38,8 +38,6 @@ public class ExcersizeData extends SQLiteOpenHelper {
 
         //Log.v(TAG, "blahCREATES BUS TABLE");
         db.execSQL(SQL_CREATE_BUS_TABLE);
-        db.close();
-
     }
 
     @Override
@@ -50,44 +48,44 @@ public class ExcersizeData extends SQLiteOpenHelper {
     }
 
 
-    public void enterExcersize(Excersize excersize ) {
+    public void enterExcersize(Exercise exercise) {
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(NAME, excersize.getName());
-        contentValues.put(CALORIES, excersize.getCal());
-        contentValues.put(REPTIME, excersize.getRepTime());
-        contentValues.put(TIME_OR_REPS, excersize.getTr());
+        contentValues.put(NAME, exercise.getName());
+        contentValues.put(CALORIES, exercise.getCal());
+        contentValues.put(REPTIME, exercise.getRepTime());
+        contentValues.put(TIME_OR_REPS, exercise.getTr());
 
         sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
         sqLiteDatabase.close();
     }
 
-    public ArrayList<Excersize> allExcersizes() {
+    public ArrayList<Exercise> allExcersizes() {
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME + " ;";
-        ArrayList<Excersize> excersizes = new ArrayList<>();
+        ArrayList<Exercise> exercises = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.rawQuery(query, null);
         if(cursor!=null) {
             cursor.moveToFirst();
 
             while (!cursor.isAfterLast()) {
-                Excersize excersize = new Excersize();
-                excersize.setId(cursor.getInt(cursor.getColumnIndex(EXCERSIZE_ID)));
-                excersize.setName(cursor.getString(cursor.getColumnIndex(NAME)));
-                excersize.setCal(cursor.getInt(cursor.getColumnIndex(CALORIES)));
-                excersize.setRepTime(cursor.getInt(cursor.getColumnIndex(REPTIME)));
-                excersize.setTr(cursor.getInt(cursor.getColumnIndex(TIME_OR_REPS)));
+                Exercise exercise = new Exercise();
+                exercise.setId(cursor.getInt(cursor.getColumnIndex(EXCERSIZE_ID)));
+                exercise.setName(cursor.getString(cursor.getColumnIndex(NAME)));
+                exercise.setCal(cursor.getInt(cursor.getColumnIndex(CALORIES)));
+                exercise.setRepTime(cursor.getInt(cursor.getColumnIndex(REPTIME)));
+                exercise.setTr(cursor.getInt(cursor.getColumnIndex(TIME_OR_REPS)));
 
-                excersizes.add(excersize);
+                exercises.add(exercise);
                 cursor.moveToNext();
             }
 
             cursor.close();
         }
         sqLiteDatabase.close();
-        return excersizes;
+        return exercises;
     }
 
     public void deleteExcersize(){}

@@ -14,9 +14,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ExcersizeActivity"/>
-        <activity android:name=".ExcersizeCreate"/>
-        <activity android:name=".ExcersizeDisplay"/>
+        <activity android:name=".ExerciseActivity"/>
+        <activity android:name=".ExerciseCreate"/>
+        <activity android:name=".ExerciseDisplay"/>
         <activity android:name=".IntervalTimerActivity"/>
         <activity android:name=".UserActivity"/>
         <activity android:name=".WorkoutActivity"/>

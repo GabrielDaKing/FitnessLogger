@@ -1,9 +1,9 @@
 package gncis.com.example.android.fitnesslogger;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-public class ExcersizeDisplay extends AppCompatActivity {
+public class ExerciseDisplay extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

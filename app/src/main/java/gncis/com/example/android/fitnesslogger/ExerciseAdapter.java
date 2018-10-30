@@ -14,11 +14,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ExcersizeAdapter extends ArrayAdapter<Excersize> {
+public class ExerciseAdapter extends ArrayAdapter<Exercise> {
 
     TextView Name, Cal, Rep;
 
-    ExcersizeAdapter(Context context, int resource, ArrayList<Excersize> objects) {
+    ExerciseAdapter(Context context, int resource, ArrayList<Exercise> objects) {
         super(context, resource, objects);
     }
 
@@ -34,52 +34,52 @@ public class ExcersizeAdapter extends ArrayAdapter<Excersize> {
         Rep = convertView.findViewById(R.id.ExcersizeRepTime);
         LinearLayout Tile = convertView.findViewById(R.id.ExcersizeTile);
 
-        Excersize excersize = getItem(position);
+        Exercise exercise = getItem(position);
 
-        if (excersize != null){
+        if (exercise != null) {
 
-            Name.setText(excersize.getName());
-            String cal = String.valueOf(excersize.getCal());
-            Cal.setText(cal);
-            String rep = String.valueOf(excersize.getRepTime());
+            Name.setText(exercise.getName());
+            String cal = String.valueOf(exercise.getCal());
+            Cal.setText(cal + " cal");
+            String rep = String.valueOf(exercise.getRepTime());
             Rep.setText(rep);
 
-            if (excersize.getTr() == 0)
-                Rep.setText(excersize.getRepTime() + " Reps ");
+            if (exercise.getTr() == 0)
+                Rep.setText(exercise.getRepTime() + " Reps ");
             else
-                Rep.setText(excersize.getRepTime() + "s ");
+                Rep.setText(exercise.getRepTime() + "s ");
 
 
             Tile.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                    builder.setMessage("What do you want to do to this excersize?");
+                    builder.setMessage("What do you want to do to this exercise?");
                     builder.setPositiveButton("Modify", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
-                    }
-                });
-                builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+                    builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
 
-                    }
-                });
+                        }
+                    });
 
-                builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int i) {
-                        dialog.cancel();
-                    }
-                });
-                builder.show();
-            }
-        });
+                    builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int i) {
+                            dialog.cancel();
+                        }
+                    });
+                    builder.show();
+                }
+            });
 
-    }
+        }
 
         return convertView;
     }

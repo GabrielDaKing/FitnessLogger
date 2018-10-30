@@ -31,10 +31,10 @@
             android:layout_height="match_parent"
             android:hint="Enter Age"
             android:inputType="number"
+            android:maxLength="3"
             android:textColor="#000000"
             android:textColorHint="#000000"
-            android:textSize="30sp"
-            android:maxLength="3"/>
+            android:textSize="30sp" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -51,10 +51,10 @@
             android:layout_height="match_parent"
             android:hint="Enter Height"
             android:inputType="numberDecimal"
+            android:maxLength="3"
             android:textColor="#000000"
             android:textColorHint="#000000"
-            android:textSize="30sp"
-            android:maxLength="3"/>
+            android:textSize="30sp" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -71,10 +71,10 @@
             android:layout_height="match_parent"
             android:hint="Enter Weight"
             android:inputType="numberDecimal"
+            android:maxLength="3"
             android:textColor="#000000"
             android:textColorHint="#000000"
-            android:textSize="30sp"
-            android:maxLength="3"/>
+            android:textSize="30sp" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -91,10 +91,10 @@
             android:layout_height="match_parent"
             android:hint="Enter Approx Calorie Intake"
             android:inputType="numberDecimal"
+            android:maxLength="5"
             android:textColor="#000000"
             android:textColorHint="#000000"
-            android:textSize="30sp"
-            android:maxLength="5"/>
+            android:textSize="30sp" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -111,10 +111,10 @@
             android:layout_height="match_parent"
             android:hint="Enter Weight Goal"
             android:inputType="numberDecimal"
+            android:maxLength="3"
             android:textColor="#000000"
             android:textColorHint="#000000"
-            android:textSize="30sp"
-            android:maxLength="3"/>
+            android:textSize="30sp" />
 
     </android.support.design.widget.TextInputLayout>
 

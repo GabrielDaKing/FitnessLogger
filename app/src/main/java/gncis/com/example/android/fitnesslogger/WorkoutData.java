@@ -5,26 +5,24 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.nfc.tech.NfcA;
 import android.provider.BaseColumns;
-import android.util.Log;
 
 import java.util.ArrayList;
 
 public class WorkoutData extends SQLiteOpenHelper {
 
-    public static final String TABLE_NAME = "workout";
-    public static final String NAME = "name";
-    public static final String WORKOUT_ID = BaseColumns._ID;
-    public static final String CALORIES = "calories";
-    public static final String REPTIME = "repTime";
-    public static final String TIME_OR_REPS = "tr";
+    private static final String TABLE_NAME = "workout";
+    private static final String NAME = "name";
+    private static final String WORKOUT_ID = BaseColumns._ID;
+    private static final String CALORIES = "calories";
+    private static final String REPTIME = "repTime";
+    private static final String TIME_OR_REPS = "tr";
 
     private static final String DATABASE_NAME = "Fitness2.db";
 
     private static final int DATABASE_VERSION = 1;
 
-    public WorkoutData(Context context) {
+    WorkoutData(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -50,7 +48,7 @@ public class WorkoutData extends SQLiteOpenHelper {
     }
 
 
-    public void enterWorkout(Workout workout ) {
+    public void enterWorkout(Workout workout) {
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -69,18 +67,18 @@ public class WorkoutData extends SQLiteOpenHelper {
         String query = "SELECT * FROM " + TABLE_NAME + " ;";
         ArrayList<Workout> workouts = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.rawQuery(query, null);
-        if(cursor!=null)    {
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            Workout workout = new Workout();
-            workout.setId(cursor.getInt(cursor.getColumnIndex(WORKOUT_ID)));
-            workout.setName(cursor.getString(cursor.getColumnIndex(NAME)));
-            workout.setCal(cursor.getInt(cursor.getColumnIndex(CALORIES)));
-            workout.setRepTime(cursor.getInt(cursor.getColumnIndex(REPTIME)));
-            workout.setTr(cursor.getInt(cursor.getColumnIndex(TIME_OR_REPS)));
+        if (cursor != null) {
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                Workout workout = new Workout();
+                workout.setId(cursor.getInt(cursor.getColumnIndex(WORKOUT_ID)));
+                workout.setName(cursor.getString(cursor.getColumnIndex(NAME)));
+                workout.setCal(cursor.getInt(cursor.getColumnIndex(CALORIES)));
+                workout.setRepTime(cursor.getInt(cursor.getColumnIndex(REPTIME)));
+                workout.setTr(cursor.getInt(cursor.getColumnIndex(TIME_OR_REPS)));
 
-            workouts.add(workout);
-            cursor.moveToNext();
+                workouts.add(workout);
+                cursor.moveToNext();
             }
             cursor.close();
         }

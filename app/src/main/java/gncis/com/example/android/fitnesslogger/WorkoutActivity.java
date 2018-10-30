@@ -1,8 +1,8 @@
 package gncis.com.example.android.fitnesslogger;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -33,7 +33,7 @@ public class WorkoutActivity extends AppCompatActivity {
         NewWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(WorkoutActivity.this,WorkoutCreate.class));
+                startActivity(new Intent(WorkoutActivity.this, WorkoutCreate.class));
             }
         });
 

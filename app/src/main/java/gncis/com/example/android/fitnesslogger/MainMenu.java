@@ -1,8 +1,8 @@
 package gncis.com.example.android.fitnesslogger;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -25,33 +25,32 @@ public class MainMenu extends AppCompatActivity {
         onClickListeners();
     }
 
-    public void onClickListeners()
-    {
+    public void onClickListeners() {
         UserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainMenu.this,UserActivity.class));
+                startActivity(new Intent(MainMenu.this, UserActivity.class));
             }
         });
 
         WorkoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainMenu.this,WorkoutActivity.class));
+                startActivity(new Intent(MainMenu.this, WorkoutActivity.class));
             }
         });
 
         ExcersizeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainMenu.this,ExcersizeActivity.class));
+                startActivity(new Intent(MainMenu.this, ExerciseActivity.class));
             }
         });
 
         IntervalTimerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainMenu.this,IntervalTimerActivity.class));
+                startActivity(new Intent(MainMenu.this, IntervalTimerActivity.class));
             }
         });
     }

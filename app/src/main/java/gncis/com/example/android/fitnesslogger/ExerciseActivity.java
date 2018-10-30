@@ -1,39 +1,39 @@
 package gncis.com.example.android.fitnesslogger;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class ExcersizeActivity extends AppCompatActivity {
+public class ExerciseActivity extends AppCompatActivity {
 
-    ExcersizeAdapter excersizeAdapter;
-    ExcersizeData excersizeData;
+    ExerciseAdapter exerciseAdapter;
+    ExerciseData exerciseData;
 
     Button NewExcersize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_excersize);
+        setContentView(R.layout.activity_exercise);
 
-        excersizeData = new ExcersizeData(this);
+        exerciseData = new ExerciseData(this);
 
         ListView listView = findViewById(R.id.excersizesView);
-        ArrayList<Excersize> arrayList =  excersizeData.allExcersizes();
-        excersizeAdapter = new ExcersizeAdapter(this, R.layout.excersize_tile, arrayList);
-        listView.setAdapter(excersizeAdapter);
+        ArrayList<Exercise> arrayList = exerciseData.allExcersizes();
+        exerciseAdapter = new ExerciseAdapter(this, R.layout.excersize_tile, arrayList);
+        listView.setAdapter(exerciseAdapter);
 
         NewExcersize = findViewById(R.id.NewExcersize);
 
         NewExcersize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ExcersizeActivity.this,ExcersizeCreate.class));
+                startActivity(new Intent(ExerciseActivity.this, ExerciseCreate.class));
             }
         });
 

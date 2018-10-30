@@ -1,10 +1,9 @@
 package gncis.com.example.android.fitnesslogger;
 
-import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -31,8 +30,7 @@ public class UserActivity extends AppCompatActivity {
 
     }
 
-    public void initialize()
-    {
+    public void initialize() {
         try {
 
 
@@ -46,25 +44,24 @@ public class UserActivity extends AppCompatActivity {
                 caloriIn.setText(SPManager.getUserCalorieIntake(this));
             if (!SPManager.getUserWeightGoal(this).equals("empty"))
                 weightGoal.setText(SPManager.getUserWeightGoal(this));
+        } catch (Exception e) {
         }
-        catch (Exception e){}
     }
 
-    public void onClickListener()
-    {
+    public void onClickListener() {
         Confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try{
+                try {
                     SPManager.setUserAge(getApplicationContext(), age.getText().toString());
                     SPManager.setUserHeight(getApplicationContext(), height.getText().toString());
                     SPManager.setUserWeight(getApplicationContext(), weight.getText().toString());
                     SPManager.setUserCalorieIntake(getApplicationContext(), caloriIn.getText().toString());
                     SPManager.setUserWeightGoal(getApplicationContext(), weightGoal.getText().toString());
+                } catch (Exception e) {
                 }
-                catch (Exception e){}
 
-                startActivity(new Intent(UserActivity.this,MainMenu.class));
+                startActivity(new Intent(UserActivity.this, MainMenu.class));
                 Toast.makeText(UserActivity.this, "Details Set", Toast.LENGTH_SHORT).show();
 
             }
