@@ -72,7 +72,7 @@ public class ExerciseCreate extends AppCompatActivity {
 
                 else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(ExerciseCreate.this);
-                    builder.setMessage("Are you sure want to create this excersize?");
+                    builder.setMessage("Are you sure want to create this exercise?");
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -80,7 +80,7 @@ public class ExerciseCreate extends AppCompatActivity {
                             Exercise exercise = new Exercise();
 
                             repTime = findViewById(measureIn.getCheckedRadioButtonId());
-                            if (repTime.getText().toString() == "Repetitions")
+                            if (repTime.getText().toString().equals("Repetitions"))
                                 tr = 0;
                             else
                                 tr = 1;
@@ -94,7 +94,7 @@ public class ExerciseCreate extends AppCompatActivity {
 
                             exerciseData.enterExcersize(exercise);
 
-                            Toast.makeText(ExerciseCreate.this, "Record Sucessfully Created", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ExerciseCreate.this, "Exercise Sucessfully Created", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     });

@@ -88,6 +88,42 @@ public class ExerciseData extends SQLiteOpenHelper {
         return exercises;
     }
 
-    public void deleteExcersize(){}
+    public void deleteExcersize(Exercise exercise){
+            SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+            String query = "DELETE FROM " + TABLE_NAME + " WHERE "
+                    + EXCERSIZE_ID + " = " + exercise.getId() + " ; ";
+            sqLiteDatabase.execSQL(query);
+        }
+
+    public Exercise returnExercise(int id) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME
+                + " WHERE " + EXCERSIZE_ID + " = " + id + " ; ";
+
+        Exercise exercise = new Exercise();
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+
+            exercise.setId(cursor.getInt(cursor.getColumnIndex(EXCERSIZE_ID)));
+            exercise.setName(cursor.getString(cursor.getColumnIndex(NAME)));
+            exercise.setCal(cursor.getInt(cursor.getColumnIndex(CALORIES)));
+            exercise.setRepTime(cursor.getInt(cursor.getColumnIndex(REPTIME)));
+            exercise.setTr(cursor.getInt(cursor.getColumnIndex(TIME_OR_REPS)));
+            cursor.close();
+        }
+        return exercise;
+    }
+
+    public void updateExercise(Exercise exercise) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String query = "UPDATE " + TABLE_NAME + " SET "
+                + NAME + " = '" + exercise.getName() + "', "
+                + REPTIME + " = '" + exercise.getRepTime() + "', "
+                + CALORIES + " = '" + exercise.getCal() + "', "
+                + TIME_OR_REPS + " = '" + exercise.getTr()
+                + "' WHERE " + EXCERSIZE_ID + " = " + exercise.getId();
+        sqLiteDatabase.execSQL(query);
+    }
 
 }

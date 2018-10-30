@@ -25,9 +25,11 @@
         android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:hint="Rest or Work"
+        android:textColor="#000000"
         android:textSize="35sp" />
 
     <TextView
+        android:textColor="#000000"
         android:id="@+id/Seconds"
         android:layout_width="match_parent"
         android:layout_height="0dp"

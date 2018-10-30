@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="9">
+    android:weightSum="15">
 
     <TextView
         android:id="@+id/WorkoutDisplayTitle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="New Workout"
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:background="@drawable/buttom_custom">
 
         <android.support.design.widget.TextInputEditText
@@ -29,6 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Name"
+            android:inputType="textCapSentences"
+            android:maxLength="15"
             android:textColor="#000000"
             android:textColorHint="#000000"
             android:textSize="30sp" />
@@ -39,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:background="@drawable/buttom_custom">
 
         <android.support.design.widget.TextInputEditText
@@ -48,6 +50,7 @@
             android:layout_height="match_parent"
             android:hint="RepTme"
             android:inputType="numberDecimal"
+            android:maxLength="5"
             android:textColor="#000000"
             android:textColorHint="#000000"
             android:textSize="30sp" />
@@ -58,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:background="@drawable/buttom_custom">
 
         <android.support.design.widget.TextInputEditText
@@ -67,17 +70,50 @@
             android:layout_height="match_parent"
             android:hint="Calories"
             android:inputType="numberDecimal"
+            android:maxLength="5"
             android:textColor="#000000"
             android:textColorHint="#000000"
             android:textSize="30sp" />
 
     </android.support.design.widget.TextInputLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Measured in : "
+        android:textSize="25sp" />
+
+    <RadioGroup
+        android:id="@+id/WorkoutMeasureIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/buttom_custom">
+
+        <RadioButton
+            android:id="@+id/inRep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Repetitions"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/inTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Time"
+            android:textSize="20sp" />
+
+    </RadioGroup>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="horizontal"
         android:weightSum="2">
 
@@ -88,12 +124,12 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="@drawable/buttom_custom2"
-            android:text="Create"
+            android:text="Modify"
             android:textColor="#FFFFFF"
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/WorkoutDelete"
+            android:id="@+id/WorkoutCancel"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"

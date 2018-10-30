@@ -79,7 +79,7 @@ public class WorkoutCreate extends AppCompatActivity {
                             Workout workout = new Workout();
 
                             repTime = findViewById(measureIn.getCheckedRadioButtonId());
-                            if (repTime.getText() == "Repetitions")
+                            if (repTime.getText().toString().equals("Repetitions"))
                                 tr = 0;
                             else
                                 tr = 1;
@@ -92,7 +92,7 @@ public class WorkoutCreate extends AppCompatActivity {
                             WorkoutData workoutData = new WorkoutData(getApplicationContext());
                             workoutData.enterWorkout(workout);
 
-                            Toast.makeText(WorkoutCreate.this, "Record Sucessfully Created", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(WorkoutCreate.this, "Workout Sucessfully Created", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     });

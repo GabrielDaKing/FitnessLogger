@@ -3,6 +3,7 @@ package gncis.com.example.android.fitnesslogger;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -11,12 +12,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class ExerciseAdapter extends ArrayAdapter<Exercise> {
 
     TextView Name, Cal, Rep;
+    ExerciseData exerciseData;
 
     ExerciseAdapter(Context context, int resource, ArrayList<Exercise> objects) {
         super(context, resource, objects);
@@ -34,7 +37,7 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
         Rep = convertView.findViewById(R.id.ExcersizeRepTime);
         LinearLayout Tile = convertView.findViewById(R.id.ExcersizeTile);
 
-        Exercise exercise = getItem(position);
+        final Exercise exercise = getItem(position);
 
         if (exercise != null) {
 
@@ -58,14 +61,19 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
                     builder.setPositiveButton("Modify", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
+                            Intent intent = new Intent(getContext(),ExerciseDisplay.class);
+                            intent.putExtra("exercise_id", exercise.getId());
+                            getContext().startActivity(intent);
+                            Toast.makeText(getContext(), "Functionality Not Avialable", Toast.LENGTH_SHORT).show();
                         }
                     });
                     builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
-
+                            exerciseData = new ExerciseData(getContext());
+                            exerciseData.deleteExcersize(exercise);
+                            Toast.makeText(getContext(), "Exercise Deleted", Toast.LENGTH_SHORT).show();
+                            getContext().startActivity(new Intent(getContext(),ExerciseActivity.class));
                         }
                     });
 

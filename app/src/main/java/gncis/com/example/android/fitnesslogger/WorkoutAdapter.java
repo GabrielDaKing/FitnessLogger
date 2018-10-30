@@ -3,6 +3,7 @@ package gncis.com.example.android.fitnesslogger;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,11 +24,10 @@ import java.util.ArrayList;
 
 public class WorkoutAdapter extends ArrayAdapter<Workout> {
 
-    private ArrayList<Workout> object;
+    WorkoutData workoutData;
 
     WorkoutAdapter(Context context, int resource, ArrayList<Workout> objects) {
         super(context, resource, objects);
-        this.object = objects;
     }
 
     @NonNull
@@ -64,14 +65,18 @@ public class WorkoutAdapter extends ArrayAdapter<Workout> {
                 builder.setPositiveButton("Modify", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Bundle bundle = new Bundle();
-                        bundle.putInt("id", workout.getId());
+                        //Intent intent = new Intent(getContext(),WorkoutDisplay.class);
+                        //intent.putExtra("workout_id", workout.getId());
+                        //getContext().startActivity(intent);
                     }
                 });
                 builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        workoutData = new WorkoutData(getContext());
+                        workoutData.deleteWorkout(workout);
+                        Toast.makeText(getContext(), "Exercise Deleted", Toast.LENGTH_SHORT).show();
+                        getContext().startActivity(new Intent(getContext(),WorkoutActivity.class));
                     }
                 });
 
